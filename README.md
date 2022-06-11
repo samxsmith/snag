@@ -36,45 +36,51 @@ The `.snag.yml` file has the following options.
 ```yml
 # schemas are the definitions you want to aggregate
 schemas:
-	# tag is what each entry should start with
-	- tag: "book"
-	
-	# cols are all the columns you'll add to each entry
-	  cols:
-	  - name
-	  - finishDate
-	  - rating
+  # tag is what each entry should start with
+  - tag: "book"
 
-	  # sortColumns define how your entries should be sorted
-	  # e.g. sort by most recently read, then by rating
-	  sortColumns:
-	      - name: finishDate
-	        type: date
-		ascending: false
-	      - name: rating
-	        type: number
+  # cols are all the columns you'll add to each entry
+  cols:
+  - name
+  - finishDate
+  - rating
 
-	  # aggregationtype defines how they should be collected
-	  # and output. Only list is available at the moment.
-	  aggregationType: list
+  # sortColumns define how your entries should be sorted
+  # e.g. sort by most recently read, then by rating
+  sortColumns:
+    - name: finishDate
+    type: date
+    ascending: false
+    - name: rating
+    type: number
 
-	  # where to save the result
-	  outputFilepath: "./aggregated/books_I_read.md"
+    # aggregationtype defines how they should be collected
+    # and output. Only list is available at the moment.
+    aggregationType: list
 
+    # where to save the result
+    outputFilepath: "./aggregated/books_I_read.md"
 ```
 
 ### Entries
 With the current config, imagine you've got the following entries in your journals across various days.
 
 > 6th June
-> #book The Count of Monte Cristo, 2022-06-06, 5
-> Love this book, so glad I re-read....
+```md
+#book The Count of Monte Cristo, 2022-06-06, 5
+Love this book, so glad I re-read....
+```
 
 > 10th May
-> #book Walden, 2022-05-10, 4.5
+```md
+#book Walden, 2022-05-10, 4.5
+```
 
 > 2nd Sept
-> #book Where the Crawdads Sing, 2021-09-02, 4.5
+```md
+#book Where the Crawdads Sing, 2021-09-02, 4.5
+```
+
 
 With structured entries like this and the config file, I'd now get an aggregated list of books I'd read, in a single place.
 
