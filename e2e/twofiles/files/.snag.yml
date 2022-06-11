@@ -1,0 +1,17 @@
+schemas:
+        - tag: "#book"
+          cols:
+          - name
+          - date
+          - rating
+          sortColumns:
+                  - name: rating
+                    type: number
+                    ascending: false
+                  - name: date
+                    type: date
+                    ascending: true
+
+          aggregationType: list
+          outputFilepath: "./aggregated/books"
+          sourceLink: wikiLink
